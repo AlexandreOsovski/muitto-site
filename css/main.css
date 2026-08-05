@@ -1,0 +1,42 @@
+/* ==========================================================================
+   MUITTO — main stylesheet
+   Imports every module in cascade order: base -> layout -> components -> utilities.
+   Loaded on all three pages (index.html, about.html, api.html); component files
+   that don't apply to a given page (e.g. docs.css on the home page) are simply unused.
+   ========================================================================== */
+
+/* Base */
+@import 'base/reset.css';
+@import 'base/variables.css';
+@import 'base/typography.css';
+
+/* Layout */
+@import 'layout/container.css';
+@import 'layout/grid.css';
+
+/* Components */
+@import 'components/nav.css';
+@import 'components/releases.css';
+@import 'components/search.css';
+@import 'components/language-switcher.css';
+@import 'components/button.css';
+@import 'components/copy-button.css';
+@import 'components/hero.css';
+@import 'components/section-header.css';
+@import 'components/features.css';
+@import 'components/guide.css';
+@import 'components/docs.css';
+@import 'components/sidebar.css';
+@import 'components/toc.css';
+@import 'components/callout.css';
+@import 'components/table.css';
+@import 'components/code-block.css';
+@import 'components/playground.css';
+@import 'components/footer.css';
+
+/* Utilities */
+@import 'utilities/helpers.css';
+@import 'utilities/animations.css';
+
+/* Responsive (must come last so breakpoint overrides win) */
+@import 'layout/responsive.css';

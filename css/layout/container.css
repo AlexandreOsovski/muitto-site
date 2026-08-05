@@ -1,0 +1,6 @@
+/* ==========================================================================
+   Container
+   Max-width content wrapper (formerly .wrap)
+   ========================================================================== */
+
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px}

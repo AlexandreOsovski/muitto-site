@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Guide
+   about.html's narrative content block (philosophy intro + walkthrough sections)
+   ========================================================================== */
+
+.guide{background:var(--bg-soft);border-top:1px solid var(--border-soft)}
+.guide__container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.guide__content{max-width:720px;margin:0 auto}
+.guide__heading{font-family:var(--sans);font-size:18px;font-weight:600;color:var(--text);margin:36px 0 14px}
+.guide__heading:first-child{margin-top:0}
+.guide__paragraph{color:var(--text-muted);font-size:15.5px;line-height:1.75;margin-bottom:18px}
+.guide__paragraph:last-of-type{margin-bottom:28px}
+
+.guide__section{margin-bottom:20px;scroll-margin-top:82px}
+.guide__section:last-child{margin-bottom:0}
+.guide__section-title{font-size:27px;color:var(--text);margin-bottom:8px}
+.guide__section-description{color:var(--text-muted);font-size:15px;margin-bottom:26px;max-width:640px;line-height:1.7}
+.guide__section-subtitle{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--accent-light);margin:36px 0 12px;letter-spacing:.02em;text-shadow:0 0 6px rgba(59,130,246,.2)}
+.guide__section-subtitle:first-of-type{margin-top:8px}
+
+.guide__note{
+  display:flex;gap:12px;
+  background:var(--surface);border-left:3px solid var(--accent);
+  box-shadow:-2px 0 8px rgba(59,130,246,.2) inset;
+  border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:18px 0;
+  font-size:14px;color:var(--text-muted);line-height:1.6;
+}
+.guide__note--warning{border-left-color:var(--warning);box-shadow:-2px 0 8px rgba(245,158,11,.2) inset}
+.guide__note b{color:var(--text)}

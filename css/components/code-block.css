@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Code block
+   pre/code syntax-highlighted blocks
+   ========================================================================== */
+
+pre{
+  background:var(--code-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:18px 20px;overflow-x:auto;margin:0 0 18px;position:relative;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+pre:hover{border-color:var(--border-hover)}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);color:var(--accent-light);padding:2px 6px;border-radius:var(--radius-sm)}
+pre code{font-family:var(--mono);font-size:13.5px;line-height:1.65;color:var(--code-text);background:none;padding:0;border-radius:0}
+.cm{color:var(--code-comment)}
+.kw{color:var(--code-keyword)}
+.str{color:var(--code-string)}
+.fn{color:var(--code-function)}

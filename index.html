@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">MUITTO — a minimalist test runner for TypeScript</title>
+<meta id="pageDesc" name="description" content="MUITTO is a minimalist, zero runtime-dependency test runner for TypeScript. Fast, lightweight, and built to be read — not just executed.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22 width=%2232%22 height=%2232%22><rect width=%2232%22 height=%2232%22 rx=%225%22 fill=%22%23050510%22/><rect width=%2232%22 height=%224%22 rx=%222%22 fill=%22%233b82f6%22/><rect width=%2232%22 height=%224%22 rx=%222%22 fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%221%22 opacity=%220.6%22/><rect x=%220.5%22 y=%220.5%22 width=%2231%22 height=%2231%22 rx=%224.5%22 fill=%22none%22 stroke=%22%231a1a35%22 stroke-width=%221%22/><path d=%22M7 24 L7 12 L11 12 L14 17 L17 12 L19 12 L19 24%22 fill=%22none%22 stroke=%22%23f0f0ff%22 stroke-width=%222.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><path d=%22M21 14 L25 14 M23 14 L23 24%22 fill=%22none%22 stroke=%22%23a0a0c0%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__container">
+    <a href="#top" class="nav__brand">
+    <svg class="nav__brand-logo" viewBox="0 0 32 32" width="40" height="40" fill="none" aria-hidden="true" focusable="false">
+        <rect x="0.5" y="0.5" width="31" height="31" rx="7" fill="#0d0d20" stroke="#1a1a35"/>
+        <path d="M7 22 L7 10 L12 16 L17 10 L17 22" stroke="#f0f0ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 10 L26 10 M23 10 L23 22" stroke="#60a5fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+      <span></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#top" class="nav__link nav__link--active" data-i18n="nav.home">Home</a>
+      <a href="about.html" class="nav__link" data-i18n="nav.about">Guide</a>
+      <a href="api.html" class="nav__link" data-i18n="nav.api">API</a>
+    </nav>
+    <button class="nav__search" id="navSearch" aria-label="Search">
+      <span class="nav__search-icon">⌕</span><span class="nav__search-label" data-i18n="nav.search">Search</span><kbd>⌘K</kbd>
+    </button>
+    <div class="nav__cta">
+      <div class="releases" id="releases">
+        <button class="releases__trigger" id="releasesTrigger" aria-haspopup="true" aria-expanded="false">
+          <span class="releases__dot"></span>v1.4.11
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="releases__menu" id="releasesMenu">
+          <span class="releases__label" data-i18n="nav.releases">Releases</span>
+          <a class="releases__item releases__item--current" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.11" target="_blank" rel="noopener"><span>v1.4.11</span><span class="releases__tag" data-i18n="nav.latest">latest</span></a>
+          <p class="releases__description" data-i18n="nav.releaseDesc">Config precedence, real pattern matching, disk-persisted snapshots, and watch mode fixes.</p>
+          <a class="releases__changelog" href="https://github.com/AlexandreOsovski/muitto/blob/main/CHANGELOG.md" target="_blank" rel="noopener" data-i18n="nav.viewChangelog">View changelog →</a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.10" target="_blank" rel="noopener"><span>v1.4.10</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.9" target="_blank" rel="noopener"><span>v1.4.9</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.8" target="_blank" rel="noopener"><span>v1.4.8</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.7" target="_blank" rel="noopener"><span>v1.4.7</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__all" href="https://github.com/AlexandreOsovski/muitto/tags" target="_blank" rel="noopener" data-i18n="nav.allReleases">All releases →</a>
+        </div>
+      </div>
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button data-lang-btn="en" class="language-switcher__option language-switcher__option--active">EN</button>
+        <button data-lang-btn="pt" class="language-switcher__option">PT</button>
+      </div>
+      <a class="button button--primary" href="https://github.com/alexandreosovski/muitto">GitHub</a>
+      <button class="nav__menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span class="nav__menu-toggle-bar"></span>
+        <span class="nav__menu-toggle-bar"></span>
+        <span class="nav__menu-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav__mobile-panel" id="mobilePanel" role="navigation" aria-label="Mobile navigation">
+  <a href="#top" class="nav__mobile-link nav__mobile-link--active" data-i18n="nav.home">Home</a>
+  <a href="about.html" class="nav__mobile-link" data-i18n="nav.about">Guide</a>
+  <a href="api.html" class="nav__mobile-link" data-i18n="nav.api">API</a>
+  <a href="https://github.com/alexandreosovski/muitto" class="nav__mobile-link">GitHub</a>
+  <div class="nav__mobile-language" role="group" aria-label="Language">
+    <button data-lang-btn="en" class="language-switcher__option language-switcher__option--active">EN</button>
+    <button data-lang-btn="pt" class="language-switcher__option">PT</button>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__container">
+      <!--<span class="hero__badge" data-i18n="hero.badge">v1.4.11</span>-->
+      <h1 data-i18n="hero.title">MUITTO</h1>
+      <p class="hero__tagline" data-i18n="hero.tagline">Zero dependencies. Maximum clarity.</p>
+      <p class="hero__lead" data-i18n="hero.lead">A minimalist, zero-dependency test runner for TypeScript. Fast, lightweight, and built to be read — not just executed.</p>
+
+      <div class="hero__actions">
+        <a href="about.html#guide" class="button button--primary button--large" data-i18n="hero.ctaPrimary">Get started</a>
+        <!--<a href="https://github.com/alexandreosovski/muitto" class="button button--ghost button--large" data-i18n="hero.ctaSecondary">GitHub</a>-->
+      </div>
+
+      <div class="hero__install">
+        <span class="hero__install-prompt">$</span>
+        <code>npm install --save-dev <span class="hero__install-package">@aleosovski/muitto</span></code>
+        <button class="copy-button" data-copy="npm install --save-dev @aleosovski/muitto" title="Copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="features__container">
+      <div class="section-header">
+        <span class="section-header__kicker" data-i18n="features.kicker">Why MUITTO</span>
+        <h2 class="section-header__title" data-i18n="features.title">Focus on what matters.</h2>
+        <p class="section-header__description" data-i18n="features.sub">No plugins to configure, no build file to maintain. Install it and run.</p>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">⚡</div>
+          <h3 data-i18n="features.f1.title">Zero configuration</h3>
+          <p data-i18n="features.f1.desc">Discovers test files automatically from sensible patterns. Works right after install.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">◈</div>
+          <h3 data-i18n="features.f2.title">Visual diffs</h3>
+          <p data-i18n="features.f2.desc">When a test fails, you see exactly what was expected and what was received — no noise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">↻</div>
+          <h3 data-i18n="features.f3.title">Watch mode</h3>
+          <p data-i18n="features.f3.desc">Re-runs the suite automatically on save, watching the whole project — not just test files.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">✓</div>
+          <h3 data-i18n="features.f4.title">Full matcher set</h3>
+          <p data-i18n="features.f4.desc"><code>toBe</code>, <code>toEqual</code>, <code>toThrow</code>, mock matchers, asymmetric matchers, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">◐</div>
+          <h3 data-i18n="features.f5.title">Mocks &amp; spies</h3>
+          <p data-i18n="features.f5.desc">Create mock functions, spy on existing methods, and control returns, resolutions and rejections.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">◷</div>
+          <h3 data-i18n="features.f6.title">Fake timers</h3>
+          <p data-i18n="features.f6.desc">Control time in your tests: advance timers, run pending callbacks, no real waiting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">☙</div>
+          <h3 data-i18n="features.f7.title">Snapshots</h3>
+          <p data-i18n="features.f7.desc">Regression tests persisted to disk, compared across runs and commits — not just within one run.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">▤</div>
+          <h3 data-i18n="features.f8.title">Parameterized tests</h3>
+          <p data-i18n="features.f8.desc"><code>it.each</code> to run the same suite against many inputs, with auto-generated names.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">▣</div>
+          <h3 data-i18n="features.f9.title">CI-ready reporters</h3>
+          <p data-i18n="features.f9.desc"><code>json</code> and <code>junit</code>, ready for GitHub Actions, GitLab CI and Jenkins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  <div class="footer__container">
+    <div class="footer__grid">
+      <p class="footer__brand" data-i18n="footer.origin">
+        <b>MUITTO</b><br>
+        A minimalist, zero-dependency test runner for TypeScript — built to be read, not just executed.
+      </p>
+      <div class="footer__links">
+        <div class="footer__column">
+          <span class="footer__column-label" data-i18n="footer.project">Project</span>
+          <a href="https://github.com/alexandreosovski/muitto">GitHub</a>
+          <a href="https://www.npmjs.com/package/@aleosovski/muitto">npm</a>
+          <a href="https://github.com/alexandreosovski/muitto/issues">Issues</a>
+        </div>
+        <div class="footer__column">
+          <span class="footer__column-label" data-i18n="footer.docs">Documentation</span>
+          <a href="about.html#guide" data-i18n="footer.quickstart">Quick start</a>
+          <a href="api.html#matchers" data-i18n="footer.matchersLink">Matchers</a>
+          <a href="api.html#cli" data-i18n="footer.cliLink">CLI</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>MUITTO — MIT © 2026</span>
+      <span data-i18n="footer.tagline">Built without dependencies. Not even this site.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search" id="searchOverlay">
+  <div class="search__panel">
+    <input id="searchInput" type="text" placeholder="Search docs..." data-i18n-placeholder="nav.searchPlaceholder" autocomplete="off">
+    <div class="search__results" id="searchResults"></div>
+  </div>
+</div>
+
+<script src="js/data/home.i18n.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

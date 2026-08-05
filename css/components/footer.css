@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Footer
+   Site footer: brand blurb, project/docs link columns, bottom bar
+   ========================================================================== */
+
+footer{padding:48px 0 36px;background:var(--bg);border-top:1px solid var(--border)}
+.footer__container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.footer__grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--border-soft)}
+.footer__brand{max-width:520px;color:var(--text-muted);font-size:13px;line-height:1.7}
+.footer__brand b{color:var(--text);font-weight:600}
+.footer__links{display:flex;gap:48px}
+.footer__column-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px;display:block}
+.footer__column a{display:block;font-size:13px;color:var(--text-muted);padding:5px 0}
+.footer__column a:hover{color:var(--text)}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;color:var(--text-faint);font-size:12px;flex-wrap:wrap;gap:12px}

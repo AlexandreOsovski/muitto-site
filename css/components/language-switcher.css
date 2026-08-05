@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Language switcher
+   EN/PT toggle in the nav
+   ========================================================================== */
+
+.language-switcher{display:flex;align-items:center;gap:2px}
+.language-switcher__option{
+  border:none;background:none;color:var(--text-faint);font-size:12px;font-weight:700;letter-spacing:.03em;
+  padding:6px 9px;border-radius:var(--radius);cursor:pointer;transition:all .15s ease;
+}
+.language-switcher__option--active{background:var(--accent);color:#fff;box-shadow:var(--glow-sm)}
+.language-switcher__option:not(.language-switcher__option--active):hover{color:var(--text)}

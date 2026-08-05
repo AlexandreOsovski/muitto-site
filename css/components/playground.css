@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Playground
+   Try-it-live code editor + output panel (api.html only)
+   ========================================================================== */
+
+.playground__presets{display:flex;gap:8px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.playground__preset{
+  border:1px solid var(--border);background:transparent;color:var(--text-muted);
+  font-size:13px;padding:7px 16px;border-radius:var(--radius);cursor:pointer;transition:all .15s ease;
+}
+.playground__preset--active{border-color:var(--accent);color:#fff;background:var(--accent);box-shadow:var(--glow-sm)}
+.playground__preset:not(.playground__preset--active):hover{color:var(--text);border-color:var(--accent)}
+
+.playground__grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch}
+.playground__editor{display:flex;flex-direction:column;gap:12px}
+.playground__code{
+  flex:1;min-height:420px;resize:vertical;
+  background:var(--code-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  color:var(--code-text);font-size:14.5px;line-height:1.7;padding:20px 22px;
+  outline:none;tab-size:2;
+}
+.playground__code:focus{border-color:var(--accent);box-shadow:var(--glow-sm)}
+.playground__actions{display:flex;gap:10px}
+.playground__output{
+  min-height:220px;max-height:460px;overflow-y:auto;
+  background:var(--code-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:20px 22px;font-family:var(--mono);font-size:14.5px;line-height:1.8;
+}
+.playground__placeholder{color:var(--text-faint);font-family:var(--sans);font-size:14px}
+.playground__result{display:flex;gap:9px;align-items:flex-start;margin-bottom:4px}
+.playground__result-mark{flex:none;width:14px}
+.playground__result--pass .playground__result-mark{color:var(--success)}
+.playground__result--fail .playground__result-mark{color:var(--error)}
+.playground__result--skip .playground__result-mark{color:var(--text-faint)}
+.playground__result-name{color:var(--text-muted)}
+.playground__result--fail .playground__result-name{color:var(--text)}
+.playground__detail{
+  margin:6px 0 14px 23px;padding:10px 14px;
+  background:var(--error-soft);border-left:2px solid var(--error);border-radius:0 var(--radius) var(--radius) 0;
+  color:var(--text-muted);font-size:12.5px;white-space:pre-wrap;
+}
+.playground__summary{margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft);color:var(--text-muted);font-size:13px}
+.playground__summary b{color:var(--text)}
+.playground__error{color:var(--error);white-space:pre-wrap}
+.playground__note{text-align:center;margin-top:20px;color:var(--text-faint);font-size:13px}

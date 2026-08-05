@@ -1,0 +1,55 @@
+/* ==========================================================================
+   CSS Custom Properties
+   Design tokens: color, spacing, typography, radius
+   ========================================================================== */
+
+:root{
+  --bg:#050510;
+  --bg-soft:#0a0a18;
+  --surface:#0d0d20;
+  --surface-2:#111128;
+  --surface-hover:#111128;
+  --surface-alt:#08081a;
+  --border:#1a1a35;
+  --border-soft:rgba(255,255,255,.06);
+  --border-hover:#2a2a50;
+  --text:#f0f0ff;
+  --text-muted:#a0a0c0;
+  --text-faint:#606080;
+  --accent:#3b82f6;
+  --accent-strong:#2563eb;
+  --accent-light:#60a5fa;
+  --accent-soft:rgba(59,130,246,.15);
+  --accent-glow:rgba(59,130,246,.35);
+  --accent-neon:rgba(59,130,246,.6);
+  --glow-sm:0 0 8px rgba(59,130,246,.4);
+  --glow-md:0 0 16px rgba(59,130,246,.5);
+  --glow-lg:0 0 32px rgba(59,130,246,.6);
+  --glow-text:0 0 10px rgba(59,130,246,.5);
+  --secondary:#06b6d4;
+  --secondary-strong:#0891b2;
+  --success:#22c55e;
+  --success-strong:#16a34a;
+  --error:#ef4444;
+  --error-soft:rgba(239,68,68,.15);
+  --nav-height:56px;
+  --sidebar-width:260px;
+  --success-soft:rgba(34,197,94,.14);
+  --warning-soft:rgba(245,158,11,.14);
+  --info-soft:rgba(59,130,246,.12);
+  --warning:#f59e0b;
+  --code-bg:#030312;
+  --code-text:#e8e8ff;
+  --code-comment:#606090;
+  --code-keyword:#60a5fa;
+  --code-string:#34d399;
+  --code-function:#818cf8;
+  --code-number:#fb923c;
+  --code-type:#38bdf8;
+  --radius:8px;
+  --radius-sm:5px;
+  --radius-lg:12px;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  --maxw:1200px;
+}

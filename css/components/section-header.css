@@ -1,0 +1,13 @@
+/* ==========================================================================
+   Section header
+   Kicker + title + description block used above features/guide sections
+   ========================================================================== */
+
+.section-header{max-width:640px;margin:0 auto 52px;text-align:center}
+.section-header__kicker{
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);
+  margin-bottom:12px;display:block;
+}
+.section-header__title{font-size:clamp(24px,3vw,28px);font-weight:600;color:var(--text);position:relative;display:inline-block;padding-bottom:16px}
+.section-header__title::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:32px;height:1px;background:var(--accent)}
+.section-header__description{margin-top:14px;color:var(--text-muted);font-size:16px;line-height:1.7}

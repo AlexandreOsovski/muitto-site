@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Copy button
+   Small icon button used in install command + code blocks
+   ========================================================================== */
+
+.copy-button{
+  flex:none;width:32px;height:32px;border-radius:var(--radius);
+  border:1px solid var(--border);background:var(--surface-2);
+  color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s ease;
+}
+.copy-button:hover{color:var(--accent-light);border-color:var(--accent);box-shadow:var(--glow-sm)}
+.copy-button svg{width:15px;height:15px}
+.copy-button--copied{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-light);animation:copyPulse .4s ease}

@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Docs layout
+   API-reference page header + sidebar/content/toc grid (api.html only)
+   ========================================================================== */
+
+.api-header{padding:56px 0 8px}
+.api-header__container{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}
+.api-header__title{font-size:clamp(28px,4vw,40px);color:var(--text)}
+.api-header__description{margin-top:12px;color:var(--text-muted);font-size:16px;max-width:640px}
+
+.docs{background:var(--bg)}
+/* .docs__container and .docs__layout are applied together on the same element —
+   per-axis padding (not the shorthand) so neither rule silently overwrites the other. */
+.docs__container{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}
+.docs__layout{display:grid;grid-template-columns:var(--sidebar-width) 1fr 220px;gap:48px;align-items:start;padding-top:64px;padding-bottom:64px}
+.docs__content{max-width:700px;min-width:0}
+
+.docs__section{margin-bottom:35px;padding-top:25px;border-top:2px solid var(--border-soft);scroll-margin-top:82px}
+.docs__section:first-child{margin-top:0;padding-top:0;border-top:none}
+.docs__section:last-child{margin-bottom:0}
+.docs__section-title{font-size:27px;color:var(--text);margin-bottom:8px}
+.docs__section-description{color:var(--text-muted);font-size:15px;margin-bottom:26px;max-width:640px;line-height:1.7}
+.docs__section-subtitle{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--accent-light);margin:36px 0 12px;letter-spacing:.02em;text-shadow:0 0 6px rgba(59,130,246,.2)}
+.docs__section-subtitle:first-of-type{margin-top:8px}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">About — MUITTO</title>
+<meta id="pageDesc" name="description" content="What MUITTO is, why it's called that, and how the test runner works under the hood.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22 width=%2232%22 height=%2232%22><rect width=%2232%22 height=%2232%22 rx=%225%22 fill=%22%23050510%22/><rect width=%2232%22 height=%224%22 rx=%222%22 fill=%22%233b82f6%22/><rect width=%2232%22 height=%224%22 rx=%222%22 fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%221%22 opacity=%220.6%22/><rect x=%220.5%22 y=%220.5%22 width=%2231%22 height=%2231%22 rx=%224.5%22 fill=%22none%22 stroke=%22%231a1a35%22 stroke-width=%221%22/><path d=%22M7 24 L7 12 L11 12 L14 17 L17 12 L19 12 L19 24%22 fill=%22none%22 stroke=%22%23f0f0ff%22 stroke-width=%222.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><path d=%22M21 14 L25 14 M23 14 L23 24%22 fill=%22none%22 stroke=%22%23a0a0c0%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__container">
+    <a href="index.html" class="nav__brand">
+        <svg class="nav__brand-logo" viewBox="0 0 32 32" width="40" height="40" fill="none" aria-hidden="true" focusable="false">
+          <rect x="0.5" y="0.5" width="31" height="31" rx="7" fill="#0d0d20" stroke="#1a1a35"/>
+          <path d="M7 22 L7 10 L12 16 L17 10 L17 22" stroke="#f0f0ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 10 L26 10 M23 10 L23 22" stroke="#60a5fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      <span></span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
+      <a href="about.html" class="nav__link nav__link--active" data-i18n="nav.about">Guide</a>
+      <a href="api.html" class="nav__link" data-i18n="nav.api">API</a>
+    </nav>
+    <button class="nav__search" id="navSearch" aria-label="Search">
+      <span class="nav__search-icon">⌕</span><span class="nav__search-label" data-i18n="nav.search">Search</span><kbd>⌘K</kbd>
+    </button>
+    <div class="nav__cta">
+      <div class="releases" id="releases">
+        <button class="releases__trigger" id="releasesTrigger" aria-haspopup="true" aria-expanded="false">
+          <span class="releases__dot"></span>v1.4.11
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="releases__menu" id="releasesMenu">
+          <span class="releases__label" data-i18n="nav.releases">Releases</span>
+          <a class="releases__item releases__item--current" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.11" target="_blank" rel="noopener"><span>v1.4.11</span><span class="releases__tag" data-i18n="nav.latest">latest</span></a>
+          <p class="releases__description" data-i18n="nav.releaseDesc">Config precedence, real pattern matching, disk-persisted snapshots, and watch mode fixes.</p>
+          <a class="releases__changelog" href="https://github.com/AlexandreOsovski/muitto/blob/main/CHANGELOG.md" target="_blank" rel="noopener" data-i18n="nav.viewChangelog">View changelog →</a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.10" target="_blank" rel="noopener"><span>v1.4.10</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.9" target="_blank" rel="noopener"><span>v1.4.9</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.8" target="_blank" rel="noopener"><span>v1.4.8</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__item" href="https://www.npmjs.com/package/@aleosovski/muitto/v/1.4.7" target="_blank" rel="noopener"><span>v1.4.7</span><span class="releases__date">Jul 20, 2026</span></a>
+          <a class="releases__all" href="https://github.com/AlexandreOsovski/muitto/tags" target="_blank" rel="noopener" data-i18n="nav.allReleases">All releases →</a>
+        </div>
+      </div>
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button data-lang-btn="en" class="language-switcher__option language-switcher__option--active">EN</button>
+        <button data-lang-btn="pt" class="language-switcher__option">PT</button>
+      </div>
+      <a class="button button--primary" href="https://github.com/alexandreosovski/muitto">GitHub</a>
+      <button class="nav__menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span class="nav__menu-toggle-bar"></span>
+        <span class="nav__menu-toggle-bar"></span>
+        <span class="nav__menu-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav__mobile-panel" id="mobilePanel" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html" class="nav__mobile-link" data-i18n="nav.home">Home</a>
+  <a href="about.html" class="nav__mobile-link nav__mobile-link--active" data-i18n="nav.about">Guide</a>
+  <a href="api.html" class="nav__mobile-link" data-i18n="nav.api">API</a>
+  <a href="https://github.com/alexandreosovski/muitto" class="nav__mobile-link">GitHub</a>
+  <div class="nav__mobile-language" role="group" aria-label="Language">
+    <button data-lang-btn="en" class="language-switcher__option language-switcher__option--active">EN</button>
+    <button data-lang-btn="pt" class="language-switcher__option">PT</button>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ABOUT -->
+  <section class="guide" id="guide" style="border-top:none;padding-top:88px">
+    <div class="guide__container">
+      <div class="section-header">
+        <span class="section-header__kicker" data-i18n="about.kicker">The philosophy</span>
+        <h2 class="section-header__title" data-i18n="about.title">Built without dependencies. Not even this site.</h2>
+        <p class="section-header__description" data-i18n="about.sub">A minimalist test runner for TypeScript — and the thinking behind it.</p>
+      </div>
+      <div class="guide__content">
+        <h3 class="guide__heading" data-i18n="about.h3what">What is MUITTO?</h3>
+        <p class="guide__paragraph" data-i18n="about.what">MUITTO is a minimalist, zero-dependency test runner for TypeScript. No config files to fight, no plugins to wire up — install it, write a <code>describe</code>/<code>it</code> block, and run. It's fast, lightweight, and built to be read — not just executed.</p>
+
+        <h3 class="guide__heading" data-i18n="about.h3why">Why the name?</h3>
+        <p class="guide__paragraph" data-i18n="about.why">"MUITTO" comes from <em style="color:var(--text);font-style:normal">muito</em>, Portuguese for "a lot" or "very" — a Brazilian expression that captures the whole philosophy in one word. Deliver everything you need for testing, with nothing you don't. Maximum capability, minimum overhead. Simple. Direct. Powerful.</p>
+
+        <h3 class="guide__heading" data-i18n="about.h3how">How it works under the hood</h3>
+        <p class="guide__paragraph" data-i18n="about.how1">There's no bundler, no plugin system, and — outside of <code>tsx</code> for transpiling TypeScript in dev — no runtime dependencies at all. When you run <code>muitto</code>, it loads config from <code>.muittorc.json</code> / <code>package.json</code>, then walks your project comparing every file path against the configured glob patterns: a small hand-written matcher supporting <code>**</code>, <code>*</code>, <code>?</code> and <code>{a,b}</code>, no external glob library involved.</p>
+        <p class="guide__paragraph" data-i18n="about.how2">Each matched file is imported with a cache-busting query string (<code>?t=timestamp-random</code>), so watch mode always re-reads fresh code instead of a stale cached module. Calling <code>describe</code>/<code>it</code> doesn't run anything yet — it just registers the test into a shared registry, keyed via <code>Symbol.for('muitto.registry')</code> on <code>globalThis</code> so it stays the same array no matter how the module gets resolved. Once the file finishes importing, the runner drains that registry, runs each test's hooks and timeout in sequence, and reports the result — before moving to the next file.</p>
+        <p class="guide__paragraph" data-i18n="about.how3">Files run one after another, not in parallel — it keeps output deterministic and avoids the complexity of merging results across processes. Every test gets its own timeout, guarded by a real <code>setTimeout</code> reference captured before any test file runs, so a test that calls <code>useFakeTimers()</code> and forgets to restore it can't accidentally disable the runner's own timeout.</p>
+        <p class="guide__paragraph" data-i18n="about.how4">Reporters are a small observer interface — <code>onStart</code>, <code>onFileStart</code>, <code>onTestEnd</code>, <code>onEnd</code> — completely decoupled from execution, which is why <code>default</code>, <code>dot</code>, <code>verbose</code>, <code>json</code> and <code>junit</code> all run through the exact same code path. Snapshots follow the same boring-on-purpose approach: they're written to a plain <code>.snap</code> JSON file under <code>__snapshots__/</code>, next to the test file, and compared on every future run — including in CI.</p>
+
+        <!-- INSTALLATION & USAGE -->
+        <section class="guide__section" id="guide-installation">
+          <h2 class="guide__section-title" data-i18n="guide.install.title">Installation &amp; usage</h2>
+          <p class="guide__section-description" data-i18n="guide.install.sub">Install as a dev dependency and run straight from the CLI — there's no extra setup step.</p>
+
+          <h3 class="guide__section-subtitle" data-i18n="guide.install.h3install">Install</h3>
+          <pre><code><span class="cm" data-i18n="guide.install.c1">// with npm</span>
+npm install --save-dev @aleosovski/muitto
+
+<span class="cm" data-i18n="guide.install.c2">// or straight with npx, no install</span>
+npx muitto</code></pre>
+
+          <h3 class="guide__section-subtitle" data-i18n="guide.install.h3run">Run the suite</h3>
+          <pre><code>npx muitto                       <span class="cm" data-i18n="guide.install.c3">// runs everything</span>
+npx muitto --watch               <span class="cm" data-i18n="guide.install.c4">// watches for changes</span>
+npx muitto --grep "sum"          <span class="cm" data-i18n="guide.install.c5">// filters by name</span>
+npx muitto src/math.test.ts      <span class="cm" data-i18n="guide.install.c6">// a specific file</span></code></pre>
+
+          <div class="guide__note">
+            <p style="margin:0;font-size:14px;line-height:1.6" data-i18n="guide.install.note">Config precedence is: <b>CLI flags</b> → <b><code>.muittorc.json</code></b> → <b><code>"muitto"</code> key in <code>package.json</code></b> → built-in defaults. Full details on the <a href="api.html#config" style="color:var(--accent-light)">API reference</a>.</p>
+          </div>
+        </section>
+
+        <!-- FILE DISCOVERY -->
+        <section class="guide__section" id="guide-discovery">
+          <h2 class="guide__section-title" data-i18n="guide.discovery.title">File discovery</h2>
+          <p class="guide__section-description" data-i18n="guide.discovery.sub">With no arguments, MUITTO scans the project (ignoring <code>node_modules</code>, <code>.git</code>, <code>dist</code>, <code>build</code>, <code>coverage</code>, <code>.next</code> and <code>.nuxt</code>) and matches every path against the configured patterns.</p>
+          <pre><code><span class="cm" data-i18n="guide.discovery.c1">// default patterns (customizable via pattern/testMatch)</span>
+"src/**/*.{test,spec}.ts"
+"test/**/*.{test,spec}.ts"
+"__tests__/**/*.ts"
+"**/*.{test,spec}.ts"</code></pre>
+          <p class="guide__section-description" style="margin-top:0" data-i18n="guide.discovery.tip">Use <code>--show-patterns</code> to see exactly which patterns are active in your project.</p>
+        </section>
+
+        <!-- WRITING TESTS -->
+        <section class="guide__section" id="guide-writing-tests">
+          <h2 class="guide__section-title" data-i18n="guide.writing.title">Writing tests</h2>
+          <p class="guide__section-description" data-i18n="guide.writing.sub">The same <code>describe</code>/<code>it</code>/<code>expect</code> shape you already know. Suites can nest, tests can be async, and nothing runs until the runner drains the file's registry.</p>
+
+          <h3 class="guide__section-subtitle" data-i18n="guide.writing.h3basic">A basic suite</h3>
+          <pre><code><span class="kw">import</span> { describe, it, expect } <span class="kw">from</span> <span class="str">"muitto"</span>;
+
+describe(<span class="str">"Calculator"</span>, () => {
+  it(<span class="str">"adds two numbers"</span>, () => {
+    expect(1 + 1).toBe(2);
+  });
+
+  it(<span class="str">"resolves asynchronously"</span>, <span class="kw">async</span> () => {
+    <span class="kw">const</span> value = <span class="kw">await</span> fetchValue();
+    expect(value).toBe(<span class="str">"ok"</span>);
+  });
+});</code></pre>
+
+          <h3 class="guide__section-subtitle" data-i18n="guide.writing.h3focus">Skipping and focusing tests</h3>
+          <p class="guide__section-description" data-i18n="guide.writing.focusDesc"><code>.skip</code> reports as skipped instead of running. <code>.only</code> is exclusive: once one exists in a file, everything else in that file is skipped.</p>
+          <pre><code>it.skip(<span class="str">"not implemented yet"</span>, () => { <span class="cm">/* ... */</span> });
+
+it.only(<span class="str">"focus on this one while debugging"</span>, () => {
+  expect(fn()).toBe(<span class="kw">true</span>);
+});</code></pre>
+
+          <h3 class="guide__section-subtitle" data-i18n="guide.writing.h3each">Parameterized tests</h3>
+          <pre><code>it.each([
+  [1, 2, 3],
+  [4, 5, 9],
+  [10, 20, 30],
+])(<span class="str">"sum $1 + $2 = $3"</span>, (a, b, expected) => {
+  expect(sum(a, b)).toBe(expected);
+});</code></pre>
+        </section>
+
+        <!-- MOCKS & SPIES -->
+        <section class="guide__section" id="guide-mocks">
+          <h2 class="guide__section-title" data-i18n="guide.mocks.title">Mocks &amp; spies</h2>
+          <p class="guide__section-description" data-i18n="guide.mocks.sub">Create isolated mock functions with <code>fn()</code>, or spy on an existing method with <code>spyOn()</code> without losing its original implementation.</p>
+          <pre><code><span class="kw">import</span> { fn, spyOn } <span class="kw">from</span> <span class="str">"muitto"</span>;
+
+<span class="kw">const</span> mockFn = fn();
+mockFn.mockReturnValue(42);
+expect(mockFn()).toBe(42);
+expect(mockFn).toHaveBeenCalledWith();
+
+<span class="kw">const</span> obj = { greet: (name) => <span class="str">`Hello ${name}`</span> };
+<span class="kw">const</span> spy = spyOn(obj, <span class="str">"greet"</span>);
+obj.greet(<span class="str">"World"</span>);
+expect(spy).toHaveBeenCalledWith(<span class="str">"World"</span>);
+spy.mockRestore(); <span class="cm" data-i18n="guide.mocks.c1">// restores the original implementation</span></code></pre>
+          <p class="guide__section-description" style="margin-top:0" data-i18n="guide.mocks.more">Every mock tracks <code>.mock.calls</code> and <code>.mock.results</code>, and can be reset with <code>mockClear()</code>/<code>mockReset()</code> — see the full <a href="api.html#mocks" style="color:var(--accent-light)">API reference</a>.</p>
+        </section>
+
+        <!-- FAKE TIMERS -->
+        <section class="guide__section" id="guide-timers">
+          <h2 class="guide__section-title" data-i18n="guide.timers.title">Fake timers</h2>
+          <p class="guide__section-description" data-i18n="guide.timers.sub">Replace <code>setTimeout</code>, <code>setInterval</code> and <code>Date</code> with controllable versions — the runner's own internal timeouts stay real.</p>
+          <pre><code><span class="kw">import</span> { useFakeTimers } <span class="kw">from</span> <span class="str">"muitto"</span>;
+
+it(<span class="str">"controls time"</span>, () => {
+  <span class="kw">const</span> timers = useFakeTimers();
+  <span class="kw">let</span> called = <span class="kw">false</span>;
+
+  setTimeout(() => { called = <span class="kw">true</span>; }, 1000);
+  timers.advanceTimersByTime(1000);
+
+  expect(called).toBe(<span class="kw">true</span>);
+  timers.restore();
+});</code></pre>
+        </section>
+
+        <!-- SNAPSHOTS -->
+        <section class="guide__section" id="guide-snapshots">
+          <h2 class="guide__section-title" data-i18n="guide.snapshots.title">Snapshots</h2>
+          <p class="guide__section-description" data-i18n="guide.snapshots.sub">Persisted to <code>__snapshots__/&lt;file&gt;.snap</code>, next to the test file — compared against previous runs and commits, not just within the same run.</p>
+          <pre><code>it(<span class="str">"user profile"</span>, () => {
+  expect(getUserProfile()).toMatchSnapshot({ name: <span class="str">"user-profile"</span> });
+});</code></pre>
+          <div class="guide__note">
+            <p style="margin:0;font-size:14px;line-height:1.6" data-i18n="guide.snapshots.note">Changed on purpose? Run <code>muitto --update-snapshots</code> to rewrite it. On the first run, the snapshot is created automatically.</p>
+          </div>
+        </section>
+
+        <!-- RETRY -->
+        <section class="guide__section" id="guide-retry">
+          <h2 class="guide__section-title" data-i18n="guide.retry.title">Retry</h2>
+          <p class="guide__section-description" data-i18n="guide.retry.sub">For tests that depend on unstable, flaky asynchronous conditions. Defaults: <code>times: 3</code>, <code>delay: 100</code>ms.</p>
+          <pre><code><span class="kw">import</span> { retry } <span class="kw">from</span> <span class="str">"muitto"</span>;
+
+it(<span class="str">"retries on failure"</span>, <span class="kw">async</span> () => {
+  <span class="kw">let</span> attempts = 0;
+
+  <span class="kw">await</span> retry(<span class="kw">async</span> () => {
+    attempts++;
+    <span class="kw">if</span> (attempts < 3) <span class="kw">throw new</span> Error(<span class="str">"not yet"</span>);
+  }, { times: 5, delay: 100 });
+
+  expect(attempts).toBe(3);
+});</code></pre>
+        </section>
+
+        <a href="api.html" class="button button--primary" style="margin-top:12px" data-i18n="about.cta">Read the full API reference →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer__container">
+    <div class="footer__grid">
+      <p class="footer__brand" data-i18n="footer.origin">
+        <b>MUITTO</b><br>
+        A minimalist, zero-dependency test runner for TypeScript — built to be read, not just executed.
+      </p>
+      <div class="footer__links">
+        <div class="footer__column">
+          <span class="footer__column-label" data-i18n="footer.project">Project</span>
+          <a href="https://github.com/alexandreosovski/muitto">GitHub</a>
+          <a href="https://www.npmjs.com/package/@aleosovski/muitto">npm</a>
+          <a href="https://github.com/alexandreosovski/muitto/issues">Issues</a>
+        </div>
+        <div class="footer__column">
+          <span class="footer__column-label" data-i18n="footer.docs">Documentation</span>
+          <a href="about.html#guide" data-i18n="footer.quickstart">Quick start</a>
+          <a href="api.html#matchers" data-i18n="footer.matchersLink">Matchers</a>
+          <a href="api.html#cli" data-i18n="footer.cliLink">CLI</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>MUITTO — MIT © 2026</span>
+      <span data-i18n="footer.tagline">Built without dependencies. Not even this site.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="search" id="searchOverlay">
+  <div class="search__panel">
+    <input id="searchInput" class="search__input" type="text" placeholder="Search docs..." data-i18n-placeholder="nav.searchPlaceholder" autocomplete="off">
+    <div class="search__results" id="searchResults"></div>
+  </div>
+</div>
+
+<script src="js/data/guide.i18n.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/search.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

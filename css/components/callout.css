@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Callout
+   Labeled note/tip/warning boxes used in the API reference (api.html)
+   ========================================================================== */
+
+.callout{border-radius:var(--radius);padding:16px 20px;margin:20px 0}
+.callout__label{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px}
+.callout p{margin:0 0 10px;color:var(--text-muted);font-size:14px;line-height:1.7}
+.callout p:last-child{margin-bottom:0}
+.callout code{background:rgba(255,255,255,.08)}
+
+.callout--info{background:var(--info-soft)}
+.callout--info .callout__label{color:var(--accent-light)}
+.callout--tip{background:var(--success-soft)}
+.callout--tip .callout__label{color:var(--success)}
+.callout--warning{background:var(--warning-soft)}
+.callout--warning .callout__label{color:var(--warning)}

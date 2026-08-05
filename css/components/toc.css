@@ -1,0 +1,17 @@
+/* ==========================================================================
+   On-this-page TOC
+   Right-hand auto-generated table of contents with scroll-spy (api.html only)
+   ========================================================================== */
+
+.toc{position:sticky;top:calc(var(--nav-height) + 24px)}
+.toc__label{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px;padding-left:14px;display:block}
+.toc__list{border-left:1px solid var(--border);margin:0;padding:0}
+.toc__list li{list-style:none}
+.toc__link{
+  display:block;padding:5px 10px 5px 14px;margin-left:-1px;
+  border-left:1px solid transparent;font-size:13px;line-height:1.5;color:var(--text-faint);
+  transition:all .15s ease;overflow-wrap:break-word;word-break:break-word;
+}
+.toc__link--sub{padding-left:26px;font-size:12.5px}
+.toc__link:hover{color:var(--text-muted)}
+.toc__link--active{color:var(--accent-light);border-left-color:var(--accent)}
