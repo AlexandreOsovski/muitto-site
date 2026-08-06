@@ -5,6 +5,11 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+*{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.15) transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:8px}
+*::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.25)}
 ul{margin:0;padding:0;list-style:none}
 img,svg{display:block}
 button{font-family:inherit}
