@@ -13,7 +13,7 @@ window.MUITTO_META = {
 window.MUITTO_PT = {
     "nav.home": "Início", "nav.about": "Guia", "nav.api": "API",
     "nav.releases": "Releases", "nav.latest": "atual", "nav.allReleases": "Ver todas →",
-    "nav.releaseDesc": "Precedência de config, pattern matching de verdade, snapshots persistidos em disco e correções no watch mode.",
+    "nav.releaseDesc": "Última versão de correções.",
     "nav.viewChangelog": "Ver changelog →",
     "nav.search": "Buscar", "nav.searchPlaceholder": "Buscar na documentação...",
 

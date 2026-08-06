@@ -13,10 +13,10 @@ window.MUITTO_META = {
 window.MUITTO_PT = {
     "nav.home": "Início", "nav.about": "Guia", "nav.api": "API",
     "nav.releases": "Releases", "nav.latest": "atual", "nav.allReleases": "Ver todas →",
-    "nav.releaseDesc": "Precedência de config, pattern matching de verdade, snapshots persistidos em disco e correções no watch mode.",
+    "nav.releaseDesc": "Última versão de correções.",
     "nav.viewChangelog": "Ver changelog →",
     "nav.search": "Buscar", "nav.searchPlaceholder": "Buscar na documentação...",
-    "hero.badge": "v1.4.11",
+    "hero.badge": "v1.4.13",
 
     "hero.title": "MUITTO",
     "hero.tagline": "Zero dependências. Máxima clareza.",
